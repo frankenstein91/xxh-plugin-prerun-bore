@@ -24,3 +24,5 @@ this is in work...
 ## Credits
 
 This plugin was created with [xxh-prerun-plugin cookiecutter template](https://github.com/xxh/cookiecutter-xxh-plugin-prerun).
+
+A very big thank you to @ekzhang

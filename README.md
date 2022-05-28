@@ -13,8 +13,8 @@ xxh +I https://github.com/frankenstein91/xxh-plugin-prerun-bore
 
 ## Usage
 ```shell
-xxh host
-# ...
+xxh user@host +if
+bore local 8000 --to bore.pub
 ```
 
 ## Known issues

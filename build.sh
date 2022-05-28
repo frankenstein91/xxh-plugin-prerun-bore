@@ -7,6 +7,7 @@ main() {
   need_cmd rm
   need_cmd cut
   need_cmd tar
+  need_cmd xargs
 	need_cmd chmod
 	build
 }

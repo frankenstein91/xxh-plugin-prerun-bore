@@ -1,5 +1,5 @@
 <p align="center">
-Using bore in xxh
+Using <a href="https://github.com/ekzhang/bore">bore</a> in xxh
 </p>
 
 <p align="center">  

@@ -1,5 +1,5 @@
 <p align="center">
-Using <a href="https://github.com/ekzhang/bore">bore</a> in xxh
+Using <a href="https://github.com/ekzhang/bore">bore</a> in <a href="https://github.com/xxh/xxh">xxh</a>
 </p>
 
 <p align="center">  

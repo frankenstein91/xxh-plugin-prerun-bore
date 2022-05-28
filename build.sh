@@ -29,7 +29,7 @@ build() {
   rm -rf $build_dir
   mkdir -p $build_dir
 
-  for f in *prerun.sh *pluginrc.*
+  for f in *prerun.sh
   do
       cp $CDIR/$f $build_dir/
   done
@@ -50,7 +50,7 @@ build() {
   tar -xzf bore.tar.gz
   chmod +x bore
   rm bore.tar.gz
-  
+
 }
 
 cmd_chk() {

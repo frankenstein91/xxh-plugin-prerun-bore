@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 
 main() {
-  #############
-  # <Example>
 	need_cmd curl
-	need_cmd grep
-	need_cmd cut
-	need_cmd xargs
+  need_cmd grep
+  need_cmd mkdir
+  need_cmd rm
+  need_cmd cut
+  need_cmd tar
 	need_cmd chmod
-  # </Example>
-  #############
 	build
 }
 
@@ -37,28 +35,22 @@ build() {
   done
 
   cd $build_dir
-
-  #############
-  # <Example>
-  # The logic is from https://github.com/ajeetdsouza/zoxide/blob/06062e92ca591a3758f2d69c9b1cd772a6a378b0/install.sh
-  echo "Downloading zoxide..."
-  _cputype="x86_64"
-  _clibtype="musl"
-  _ostype=unknown-linux-$_clibtype
-  _target="$_cputype-$_ostype"
-  rm -rf "zoxide-$_target"
-  curl -s https://api.github.com/repos/ajeetdsouza/zoxide/releases/latest | grep "browser_download_url" | cut -d '"' -f 4 | grep "$_target" | xargs -n 1 curl -LJO
-  mv "zoxide-$_target" "zoxide"
-  chmod +x zoxide
+  # get CPU architecture
+  if [ -z "$ARCH" ]; then
+    ARCH=$(uname -m)
+  fi
+  # get os type
+  if [ -z "$KERNEL" ]; then
+    KERNEL=$(uname -s)
+  fi
+  echo "Downloading bore..."
+  # get release from github
+  curl -s https://api.github.com/repos/ekzhang/bore/releases/latest | grep browser_download_url | grep $ARCH | grep -i $KERNEL | cut -d '"' -f 4 | xargs curl -L -o bore.tar.gz
+  echo "Extracting bore..."
+  tar -xzf bore.tar.gz
+  chmod +x bore
+  rm bore.tar.gz
   
-  # Note! To integrate the plugin with xxh-shell create `pluginrc` file. 
-  # For example create `pluginrc.zsh` with the content to init the zoxide on shell starting:
-  # ```
-  # eval "$(zoxide init zsh)"
-  # ```  
-  
-  # </Example>
-  #############
 }
 
 cmd_chk() {
